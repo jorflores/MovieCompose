@@ -25,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.movieapp.model.Movie
 import com.example.movieapp.navigation.MovieNavigation
 import com.example.movieapp.ui.theme.MovieAppTheme
 
@@ -55,7 +56,7 @@ fun MyApp(content: @Composable () -> Unit) {
 
 
 @Composable
-fun MovieRow(movie: String, onItemClick: (String) ->Unit = {}) {
+fun MovieRow(movie: Movie, onItemClick: (String) ->Unit = {}) {
     Card(
         modifier = Modifier
             .padding(4.dp)
@@ -63,7 +64,7 @@ fun MovieRow(movie: String, onItemClick: (String) ->Unit = {}) {
             .height(130.dp)
             .clickable {
 
-                onItemClick(movie)
+                onItemClick(movie.id)
 
             }
         ,
@@ -84,7 +85,7 @@ fun MovieRow(movie: String, onItemClick: (String) ->Unit = {}) {
 
                 Icon(imageVector = Icons.Default.AccountBox, contentDescription = null)
             }
-            Text(text = movie)
+            Text(text = movie.title)
         }
     }
 }

@@ -19,6 +19,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.movieapp.MovieRow
+import com.example.movieapp.model.Movie
+import com.example.movieapp.model.getMovies
 import com.example.movieapp.navigation.MovieScreens
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -41,16 +43,7 @@ fun HomeScreen(navController: NavController) {
 @Composable
 fun MainContent(
     paddingValues: PaddingValues,
-    movieList: List<String> = listOf(
-        "Avatar",
-        "300",
-        "Harry Potter",
-        "Life",
-        "Terminator",
-        "Lord of the Rings",
-        "Back to the Future",
-
-        ),
+    movieList: List<Movie> = getMovies(),
     navController: NavController
 ) {
     Surface(
